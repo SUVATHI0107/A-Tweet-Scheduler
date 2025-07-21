@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Twitter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #15202b;
+            color: white;
+        }
+        form {
+            background-color: #1da1f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #ffffff;
+            color: #1da1f2;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('login') }}" method="POST">
+        <h2>Login with Twitter</h2>
+        <input type="submit" value="Login with Twitter">
+    </form>
+</body>
+</html>

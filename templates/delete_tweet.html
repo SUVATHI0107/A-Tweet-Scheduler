@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Tweet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete the following tweet?</p>        
+        <div class="tweet-details">
+            <p><strong>Tweet Text:</strong> {{ tweet['text'] }}</p>            
+            {% if tweet['image_url'] %}
+                <p><strong>Image:</strong></p>
+                <img src="{{ url_for('static', filename=tweet['image_url']) }}" alt="Tweet Image" width="200">
+            {% endif %}            
+            <p><strong>Scheduled Time:</strong> {{ tweet['scheduled_time'].strftime('%Y-%m-%d %H:%M') }}</p>
+        </div>        
+        <form action="{{ url_for('delete_tweet', index=index) }}" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
